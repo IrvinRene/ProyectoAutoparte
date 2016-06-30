@@ -1,32 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.3.11
--- http://www.phpmyadmin.net
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2016 a las 02:29:43
--- Versión del servidor: 5.6.24
--- Versión de PHP: 5.6.8
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Base de datos: `autopartes`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `piezas`
---
-
-CREATE TABLE IF NOT EXISTS `piezas` (
+﻿CREATE TABLE IF NOT EXISTS `piezas` (
   `id` int(5) NOT NULL,
   `imagen` varchar(80) NOT NULL,
   `pieza` varchar(40) NOT NULL,
@@ -39,11 +11,7 @@ CREATE TABLE IF NOT EXISTS `piezas` (
   `updated_at` varchar(45) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `piezas`
---
-
-INSERT INTO `piezas` (`id`, `imagen`, `pieza`, `serie`, `marca`, `infoadicional`, `idsucursal`, `idmodelo`, `created_at`, `updated_at`) VALUES
+ INSERT INTO `piezas` (`id`, `imagen`, `pieza`, `serie`, `marca`, `infoadicional`, `idsucursal`, `idmodelo`, `created_at`, `updated_at`) VALUES
 (1, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\bujehorquillaA1SYDchico', 'Buje Horquilla', '191-407-182', 'SYD', 'Chico, Inferior', 2, 1, '', ''),
 (2, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\bujehorquillaA1SYDgrande', 'Buje Horquilla', '1J0-407.181.A', 'SYD', 'Grande, Inferior', 2, 1, '', ''),
 (3, 'C:\\xampp\\htdocs\\ProyectoFinal\\imagenespiezas\\buje horquilla A1 HUAT grande ', 'Buje Horquilla', 'PHAK-4028', 'HUAT', 'grande, Inferior', 2, 1, '', ''),
@@ -91,27 +59,8 @@ INSERT INTO `piezas` (`id`, `imagen`, `pieza`, `serie`, `marca`, `infoadicional`
 (45, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\terminal direccion A1 eR', 'Terminal Dirección', '6Q0-422-812', 'SYD', 'Exterior R', 3, 1, '', ''),
 (46, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\terminal direccion A1 eL', 'Terminal Dirección', '6Q0-422-811', 'SYD', 'Exterior L', 5, 1, '', ''),
 (47, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\tornillo estabilizador A1 SYD', 'Tornillo Estabilizador', '2126004', 'SYD', 'Delantero', 3, 1, '', ''),
-(48, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\tornillo estabilizador A1 HUAT', 'Tornillo Estabilizador', 'PHAK.3022', 'HUAT', 'Delantero', 5, 1, '', '');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `piezas`
---
+(48, 'C:\\xampp\\htdocs\\ProyectoAutoparte\\imagenespiezas\\tornillo estabilizador A1 HUAT', 'Tornillo Estabilizador', 'PHAK.3022', 'HUAT', 'Delantero', 5, 1, '', ''); 
 ALTER TABLE `piezas`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `piezas`
---
+  ADD PRIMARY KEY (`id`); 
 ALTER TABLE `piezas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
