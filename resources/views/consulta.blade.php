@@ -11,13 +11,13 @@
 				<div class="panel-body">
 					{{--<div class="row">--}}
 						¿Qué estás buscando? Ingresa tus datos ... <br>
-						{{--{!!Form::model($consulta,$parametros['ruta'])!!}--}}
+						{!! Form::open(['url' => 'prueba', 'class' => 'form-horizontal']) !!}
 						<form clas="form-horizontal">
 									
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
 								<label class="col-sm-3 control-label">Marca</label>
 								<div class="col-sm-7">
-									{!! Form::select('id', App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control')) !!}
+									{!! Form::select('marca', App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
@@ -58,10 +58,28 @@
 							</div>
 						</div>
 					</form>
-						{!!Form::close()!!}
+						{!!Form::close()!!}		
+
 					{{--</div>--}}
 				</div>
 			</div>
+		</div>
+
+		<div class="col-sm-7 col-m-d-offset-7">
+			@if(isset($Marcas))
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>nombre</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{ $Marcas->marca }}</td>
+							</tr>
+						</tbody>
+					</table>
+				@endif
 		</div>
 	</div>
 </div>

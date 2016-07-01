@@ -13,4 +13,14 @@ class ConsultaController extends Controller {
 		return view('consulta');
 	}
 
+	public function postPrueba(Request $request)
+	{
+		//dd($request->all());
+		$Marcas = \App\Marcas::find($request->get('marca'));
+		//dd($Marcas);
+		return view('consulta', compact('Marcas'));
+	}
+
+
+
 }
