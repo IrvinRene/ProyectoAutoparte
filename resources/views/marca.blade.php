@@ -11,11 +11,19 @@
 			</div>
 				<div class="panel-body">
 					{!! Form::model($marca, $parametros['ruta']) !!}		
- 			 		<div class="form-group">  
-			 			<div class="col-sm-9">
-			 				{!!Form::text('marca',null,['class'=>'form-control','placeholder'=>'Ingrese el nombre de la marca'])!!} 
+ 			 		<div class="form-group" >  
+			 			<div class="col-sm-2">
+			 				<label>Marca</label>
+			 			</div> 
+			 			<div class="col-sm-12">
+			 				{!!Form::text('marca',null,['class'=>'form-control','placeholder'=>'Ingrese el nombre de la marca', 'maxlength' => '1000'])!!} 
 			 			</div>
+			 		</div>
+			 			<br>
+			 			<div>
 			 				{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!} 
+			 			</div>
+			 				
 			 		</div>
 			 	</div> 
  				<br>
@@ -44,14 +52,14 @@
 						<tr class="text-center">
 							    <td>{{$marca->marca}}</td>
 
-							   <!--  <td>
+							     <td>
 									<a href="{{ route('marca.edit', $marca->id) }}" class="btn btn-success btn-sm"><i class="fa fa-btn fa-edit"></i>Editar</a>
-								</td> -->
-								<!-- <td>
+								</td> 
+								 <td>
 									{!! Form::open(['method' => 'DELETE','route' => ['marca.destroy', $marca->id]]) !!}
 										<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-close fa-btn"></i>Eliminar</button>		
 									{!! Form::close() !!}
-								</td> -->
+								</td>
 							</tr>		
 						@endforeach
 						</tbody>

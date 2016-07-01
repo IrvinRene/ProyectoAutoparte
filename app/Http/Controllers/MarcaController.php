@@ -74,11 +74,12 @@ class MarcaController extends Controller {
 	public function edit($id)
 	{
 		  
-        // $marcas = marcas::find($id);
-        // // $pz = Pieza::find($id)->paginate(10);
-        // $parametros['ruta']             = ['route' => ['marca.update', $id], 'method' => 'patch', 'class' => 'form-horizontal'];
-        // $parametros['marca']            = $marcas->marca;
-       
+        $marca = marcas::find($id);
+        // $pz = Pieza::find($id)->paginate(10);
+        $parametros['ruta']             = ['route' => ['marca.update', $id], 'method' => 'patch', 'class' => 'form-horizontal'];
+        $parametros['marca']            = $marca->marca;
+
+       	return view('marca', compact(['marca', 'parametros']));
 	}
 
 	/**
@@ -89,16 +90,15 @@ class MarcaController extends Controller {
 	 */
 	public function update(Request $request,$id)
 	{
-   // $marcas = Marcas::find($id);
-     
-  //       $marcas->marcas                 = $request->input('marcas');
+    	$marca = Marcas::find($id);
+        $marca->marca                = $request->input('marca');
   //       $pieza->serie                   = $request->input('serie');
   //       $pieza->marca                   = $request->input('marca');
   //       $pieza->infoadicional                   = $request->input('infoadicional');
   //       $pieza->idsucursal                  = $request->input('idsucursal');
   //       $pieza->idmodelo                    = $request->input('idmodelo');
-  //       $pieza->save();
-  //       return \Redirect::route('pieza.index');
+        $marca->save();
+        return \Redirect::route('marca.index');
 	}
 
 	/**
@@ -109,8 +109,11 @@ class MarcaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		// User::destroy($id);
-  //       return \Redirect::route('marca.index');
+		$marca = Marcas::find($id);
+		$marca -> delete();
+		Flash::error ('La marca '. $marca->marca. 'Ha sido borrada de forma exitosa!');
+
+         return \Redirect::route('marca.index');
 	}
 
 }
