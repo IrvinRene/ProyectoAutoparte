@@ -1,11 +1,10 @@
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+<?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Http\Request;
+use App\Inventario as Inventario;
 
 class InventarioController extends Controller
 {
@@ -14,9 +13,24 @@ class InventarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $inventario = new Inventario;
+        $parametros['ruta']             = ['route' => 'inventario.store', 'class' => 'form-horizontal'];
+        $parametros['metodo']       = 'POST';
+        $parametros['cantidad ']        =  '';
+        $parametros['idpieza']        =  '';
+        $parametros['idsucursal']        =  '';
+        $parametros['button']       = 'Registrar';
+        
+        if($request->input('inventario1') != ""){
+            $inv = Inventario::invt($request->get('inventario1'))->paginate(10);
+        }
+        else{
+            $inv = Inventario::paginate(10);
+        }
+       
+        return view('inventario', compact(['parametros', 'inventario', 'inv']));
     }
 
     /**
@@ -37,7 +51,13 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inventario = new Inventario;
+        $inventario->cantidad                   = $request->input('cantidad');
+        $inventario->idpieza                   = $request->input('idpieza');
+        $inventario->idsucursal                   = $request->input('idsucursal');
+    
+        $inventario->save();
+        return redirect()->back();
     }
 
     /**
@@ -57,9 +77,19 @@ class InventarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $inventario = Inventario::find($id);
+        $inv = Inventario::find($id)->paginate(10);
+        $parametros['ruta']             = ['route' => ['inventario.update', $id], 'method' => 'patch', 'class' => 'form-horizontal'];
+        $parametros['cantidad']            = $inventario->cantidad;
+        $parametros['idpieza']            = $inventario->idpieza;
+        $parametros['idsucursal']            = $inventario->idsucursal;
+        $parametros['button']           = 'Editar';
+
+
+        
+        return view('inventario', compact(['parametros', 'inventario','inv']));
     }
 
     /**
@@ -71,7 +101,13 @@ class InventarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $inventario = Inventario::find($id);
+     
+        $inventario->cantidad                   = $request->input('cantidad');
+        $inventario->idpieza                   = $request->input('idpieza');
+        $inventario->idsucursal                   = $request->input('idsucursal');
+        $inventario->save();
+        return \Redirect::route('inventario.index');
     }
 
     /**
