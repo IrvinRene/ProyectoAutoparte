@@ -18,6 +18,7 @@ Route::resource('marca', 'MarcaController');//IRVIN
 Route::resource('pieza', 'PiezaController');//Sandra
 Route::resource('modelo', 'ModeloController');// Alex
 Route::resource('inventario', 'InventarioController');//Lukita
+Route::resource('reporteemp', 'ReporteempController');//Lukita
 //Anais esta parte creo que te sirve a ti
 Route::resource('sucursal', 'SucursalController');//Willian
 
