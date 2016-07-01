@@ -17,6 +17,7 @@ Route::get('consulta', 'ConsultaController@index'); //LIBNY
 Route::resource('marca', 'MarcaController');//IRVIN
 Route::resource('pieza', 'PiezaController');//Sandra
 Route::resource('modelo', 'ModeloController');// Alex
+Route::resource('inventario', 'InventarioController');//Lukita
 //Anais esta parte creo que te sirve a ti
 Route::get('home', 'HomeController@index');
 Route::controllers([
