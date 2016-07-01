@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use App\Http\Controllers\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -12,12 +12,18 @@ class MarcaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
 		$marca = new Marcas;
 		$parametros['ruta'] 			= ['route' => 'marca.store', 'class' => 'form-horizontal'];
 		$parametros['metodo'] 			= 'POST';
 		$parametros['marca'] 			=  '';
+
+		 if($request->input('marca') != ""){
+             $marca = Marca::paginate(10);
+        }
+        else{
+        }
 
 		return view('marca', compact(['marca', 'parametros']));
 	}
@@ -67,7 +73,8 @@ class MarcaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		  
+       
 	}
 
 	/**
@@ -76,9 +83,17 @@ class MarcaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
+     
+  //       $marcas->marcas                 = $request->input('marcas');
+  //       $pieza->serie                   = $request->input('serie');
+  //       $pieza->marca                   = $request->input('marca');
+  //       $pieza->infoadicional                   = $request->input('infoadicional');
+  //       $pieza->idsucursal                  = $request->input('idsucursal');
+  //       $pieza->idmodelo                    = $request->input('idmodelo');
+  //       $pieza->save();
+  //       return \Redirect::route('pieza.index');
 	}
 
 	/**
@@ -89,7 +104,8 @@ class MarcaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		// User::destroy($id);
+  //       return \Redirect::route('marca.index');
 	}
 
 }

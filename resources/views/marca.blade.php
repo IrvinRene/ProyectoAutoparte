@@ -1,25 +1,57 @@
 
  @extends('layouts.principal') 
  	@section('content') 
-	{!! Form::model($marca, $parametros['ruta']) !!}			
-	
- 		<div class="form-group">
- 			<div class="col-sm-7"> 
- 				{!!Form::label('marca','Marca:')!!}
- 			</div>
- 		</div>	
- 		
- 	
-	 	
- 		<div class="form-group">  
- 			<div class="col-sm-7">
- 				{!!Form::text('marca',null,['class'=>'form-control','placeholder'=>'Ingrese el nombre de la marca'])!!} 
- 			</div>
- 		</div> 
- 	
- 	
- 	<br>
-
- 	{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!} 
+ 	<div class="row">	
+ 		<div class="col-sm-8 col-sm-offset-2"> 
+			<div class="panel-success">
+			<div class="panel-heading strong">
+			<h4 class="text-center">
+				Marcas
+			</h4>	
+			</div>
+				<div class="panel-body">
+					{!! Form::model($marca, $parametros['ruta']) !!}		
+ 			 		<div class="form-group">  
+			 			<div class="col-sm-9">
+			 				{!!Form::text('marca',null,['class'=>'form-control','placeholder'=>'Ingrese el nombre de la marca'])!!} 
+			 			</div>
+			 				{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!} 
+			 		</div>
+			 	</div> 
+ 				<br>
  	{!!Form::close()!!} 
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<div class="col-sm-12">
+			<h3 class="text-center">Marcas Almacenadas</h3>
+			<br>
+			<div class="table-responsive">
+			{{--{!! Form::open(['method' => 'GET','route' => 'marca.index']) !!}
+				
+			{!! Form::close() !!}--}}
+
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr class="info">
+							<th>MARCA</th><th>EDITAR</th><th>ELIMINAR</th>
+						</tr>
+					</thead>
+						
+						<tbody>
+						@foreach(App\Marcas::all() as $marca)
+						<tr class="text-center">
+							    <td>{{$marca->marca}}</td>
+
+									<a href="{{ route('marcas.edit', $marca->id) }}" class="btn btn-success btn-sm"><i class="fa fa-btn fa-edit"></i>Editar</a>
+										<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-close fa-btn"></i>Eliminar</button>		
+							</tr>		
+						@endforeach
+						</tbody>
+				</table>
+			</div>
+	</div>
+</div>
+
  	@endsection 
