@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
-use App\Http\Controllers\User;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Marcas as Marcas;
 class MarcaController extends Controller {
@@ -74,6 +74,10 @@ class MarcaController extends Controller {
 	public function edit($id)
 	{
 		  
+        // $marcas = marcas::find($id);
+        // // $pz = Pieza::find($id)->paginate(10);
+        // $parametros['ruta']             = ['route' => ['marca.update', $id], 'method' => 'patch', 'class' => 'form-horizontal'];
+        // $parametros['marca']            = $marcas->marca;
        
 	}
 
@@ -85,6 +89,7 @@ class MarcaController extends Controller {
 	 */
 	public function update(Request $request,$id)
 	{
+   // $marcas = Marcas::find($id);
      
   //       $marcas->marcas                 = $request->input('marcas');
   //       $pieza->serie                   = $request->input('serie');

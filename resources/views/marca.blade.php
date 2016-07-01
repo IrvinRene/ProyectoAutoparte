@@ -44,8 +44,14 @@
 						<tr class="text-center">
 							    <td>{{$marca->marca}}</td>
 
-									<a href="{{ route('marcas.edit', $marca->id) }}" class="btn btn-success btn-sm"><i class="fa fa-btn fa-edit"></i>Editar</a>
+							   <!--  <td>
+									<a href="{{ route('marca.edit', $marca->id) }}" class="btn btn-success btn-sm"><i class="fa fa-btn fa-edit"></i>Editar</a>
+								</td> -->
+								<!-- <td>
+									{!! Form::open(['method' => 'DELETE','route' => ['marca.destroy', $marca->id]]) !!}
 										<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-close fa-btn"></i>Eliminar</button>		
+									{!! Form::close() !!}
+								</td> -->
 							</tr>		
 						@endforeach
 						</tbody>
