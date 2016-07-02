@@ -40,10 +40,14 @@
 						<tr class="text-center">
 							    <td>{{$sucursal->sucursal}}</td>
 
-							   <td>
+							   	<td>
 									<a href="{{ route('sucursal.edit', $sucursal->id) }}" class="btn btn-success btn-sm"><i class="fa fa-btn fa-edit"></i>Editar</a>
 								</td> 
-								  
+								<td>
+									{!! Form::open(['method' => 'DELETE','route' => ['sucursal.destroy', $sucursal->id]]) !!}
+										<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-close fa-btn"></i>Eliminar</button>		
+									{!! Form::close() !!}
+								</td>  
 							</tr>		
 						@endforeach
 						</tbody>
