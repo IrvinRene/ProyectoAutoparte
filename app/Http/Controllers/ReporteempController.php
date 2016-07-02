@@ -23,7 +23,7 @@ class ReporteempController extends Controller
         $parametros['idsucursal']        =  '';
         $parametros['button']       = 'Registrar';
         
-        if($request->input('reporteemp') != ""){
+        if($request->input('reporteemp1') != ""){
             $repemp = Reporteemp::reptemp($request->get('reporteemp1'))->paginate(10);
         }
         else{
