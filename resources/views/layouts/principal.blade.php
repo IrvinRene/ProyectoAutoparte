@@ -36,7 +36,7 @@
 						  <span class="caret"></span></button>
 						  <ul class="dropdown-menu">
 						    <li><a href="#">Ingresar USUARIO</a></li> 
-						    <li><a href="#">Ingresar EMPRESA</a></li>
+						    <li><a href="{{ url('sucursal') }}">Ingresar SUCURSAL</a></li>
 						    <li><a href="{{ url('marca') }}">Ingresar MARCAS</a></li>
 						    <li><a href="#">Ingresar MODELOS</a></li>
 						    <li><a href="#">Ingresar PIEZAS</a></li>
