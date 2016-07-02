@@ -2,6 +2,96 @@
 
 @section('content')
 <div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+			<div class="panel panel-success">
+				
+				<div class="panel-heading strong">
+				Entrada/Salida del Inventario
+				</div>
+				<div class="panel-body">
+					
+					@include('partials.errors')
+					
+					{!! Form::model($inventario, $parametros['ruta']) !!}
+					
+
+					<div clas="form-group">
+							<label class="col-sm-3 control-label">Año</label>
+							<div class="col-sm-7">
+								{!! Form::select('$agnos', App\Agnos::lists('agno', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>	
+						<br><br><br>
+						
+
+					<div clas="form-group">
+							<label class="col-sm-3 control-label">Marca</label>
+							<div class="col-sm-7">
+								{!! Form::select(null, App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control')) !!}
+
+							</div>
+						</div>	
+						<br><br><br>
+						
+						<div clas="form-group">
+							<label class="col-sm-3 control-label">Modelo</label>
+							<div class="col-sm-7">
+								{!! Form::select(null, App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>	
+						<br><br><br>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Proceso</label>
+							<div class="col-sm-7">
+								{!! Form::select(null, App\Procesos::lists('proceso', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>
+						
+
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Cantidad</label>
+							<div class="col-sm-7">
+								{!! Form::text('cantidad', null, array('class' => 'form-control', 'placeholder' => 'Cantidad de la pieza')) !!}
+							</div>
+						</div>	
+
+						
+
+                        <div class="form-group">
+							<label class="col-sm-3 control-label">Pieza</label>
+							<div class="col-sm-7">
+								{!! Form::select('idpieza', App\Pieza::lists('pieza', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>	
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Marca de la Pieza</label>
+							<div class="col-sm-7">
+								{!! Form::select(null, App\Pieza::lists('marca', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>	
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Información Adicional</label>
+							<div class="col-sm-7">
+								{!! Form::select(null, App\Pieza::lists('infoadicional', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>	
+
+						
+						<div class="form-group">
+							<div class="col-sm-7 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">{{ $parametros['button'] }}</button>
+								<br>
+							</div>
+						</div>
+					{!! Form::close() !!}
+				
+				</div>
+			</div>
+		</div>
 	<div class="col-sm-12">
 		<h2 class="text-center">Inventario</h2>
 		<br>
