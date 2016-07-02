@@ -26,5 +26,6 @@ Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',]);
-Route::post('prueba', ['uses' => 'ConsultaController@postPrueba']);
+Route::post('Resultado', ['uses' => 'ConsultaController@postResultado']);
+
 

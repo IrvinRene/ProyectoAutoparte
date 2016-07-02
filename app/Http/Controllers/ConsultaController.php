@@ -13,12 +13,19 @@ class ConsultaController extends Controller {
 		return view('consulta');
 	}
 
-	public function postPrueba(Request $request)
+	public function postResultado(Request $request)
 	{
 		//dd($request->all());
 		$Marcas = \App\Marcas::find($request->get('marca'));
-		//dd($Marcas);
-		return view('consulta', compact('Marcas'));
+		$Modelo = \App\Modelo::find($request->get('modelo'));
+		$Inventario = \App\Inventario::find($request->get('pieza'));
+		//dd($Inventario);
+		$Inventario->cantidad=\App\Inventario::where('idpieza', $request->get('pieza'))->first()->cantidad;
+		$Sucursal = \App\Sucursal::find($Inventario->idsucursal);
+		//$sucursal = \App\Sucursal::find($inventario->idsucursal);
+		//dd($Inventario);
+		//dd($Inventario->cantidad);
+		return view('consulta', compact(['Marcas','Modelo','Inventario','Sucursal']));
 	}
 
 

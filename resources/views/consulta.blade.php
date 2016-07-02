@@ -11,7 +11,7 @@
 				<div class="panel-body">
 					{{--<div class="row">--}}
 						¿Qué estás buscando? Ingresa tus datos ... <br>
-						{!! Form::open(['url' => 'prueba', 'class' => 'form-horizontal']) !!}
+						{!! Form::open(['url' => 'Resultado', 'class' => 'form-horizontal']) !!}
 						<form clas="form-horizontal">
 									
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
@@ -24,28 +24,28 @@
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
 								<label class="col-sm-3 control-label">Modelo</label>
 								<div class="col-sm-7">
-									{!! Form::select('id', App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
+									{!! Form::select('modelo', App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
 								<label class="col-sm-3 control-label">Motor</label>
 								<div class="col-sm-7">
-									{!! Form::select('id', App\Motores::lists('motor', 'id'), null, array('class' => 'form-control')) !!}
+									{!! Form::select('motor', App\Motores::lists('motor', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
 								<label class="col-sm-3 control-label">Año</label>
 								<div class="col-sm-7">
-									{!! Form::select('id', App\Agnos::lists('agno', 'id'), null, array('class' => 'form-control')) !!}
+									{!! Form::select('agno', App\Agnos::lists('agno', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
 								<label class="col-sm-3 control-label">Pieza</label>
 								<div class="col-sm-7">
-									{!! Form::select('id', App\Pieza::lists('pieza', 'id'), null, array('class' => 'form-control')) !!}
+									{!! Form::select('pieza', App\Pieza::lists('pieza', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 								<br></br>
 							</div>
@@ -70,12 +70,18 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>nombre</th>
+								<th>Marca</th>
+								<th>Modelo</th>
+								<th>Stock</th>
+								<th>Sucursal</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>{{ $Marcas->marca }}</td>
+								<td>{{ $Modelo->modelo }}</td>
+								<td>{{ $Inventario->cantidad }}</td>
+								<td>{{ $Sucursal->sucursal }}</td>
 							</tr>
 						</tbody>
 					</table>
