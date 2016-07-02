@@ -18,6 +18,7 @@ class MarcaController extends Controller {
 		$parametros['ruta'] 			= ['route' => 'marca.store', 'class' => 'form-horizontal'];
 		$parametros['metodo'] 			= 'POST';
 		$parametros['marca'] 			=  '';
+		$parametros['button']       = 'Registrar';
 
 		 if($request->input('marca') != ""){
              $marca = Marca::paginate(10);
@@ -78,6 +79,7 @@ class MarcaController extends Controller {
         // $pz = Pieza::find($id)->paginate(10);
         $parametros['ruta']             = ['route' => ['marca.update', $id], 'method' => 'patch', 'class' => 'form-horizontal'];
         $parametros['marca']            = $marca->marca;
+        $parametros['button']           = 'Editar';
 
        	return view('marca', compact(['marca', 'parametros']));
 	}
@@ -111,7 +113,7 @@ class MarcaController extends Controller {
 	{
 		$marca = Marcas::find($id);
 		$marca -> delete();
-		Flash::error ('La marca '. $marca->marca. 'Ha sido borrada de forma exitosa!');
+		
 
          return \Redirect::route('marca.index');
 	}

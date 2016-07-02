@@ -21,7 +21,8 @@
 			 		</div>
 			 			<br>
 			 			<div>
-			 				{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!} 
+			 				<button type="submit" class="btn btn-primary">{{ $parametros['button'] }}</button>
+			 				 
 			 			</div>
 			 				
 			 		</div>
