@@ -38,9 +38,9 @@
 						    <li><a href="#">Ingresar USUARIO</a></li> 
 						    <li><a href="{{ url('sucursal') }}">Ingresar SUCURSAL</a></li>
 						    <li><a href="{{ url('marca') }}">Ingresar MARCAS</a></li>
-						    <li><a href="#">Ingresar MODELOS</a></li>
-						    <li><a href="#">Ingresar PIEZAS</a></li>
-						    <li><a href="#">Inventario</a></li>
+						    <li><a href="{{ url('modelo') }}">Ingresar MODELOS</a></li>
+						    <li><a href="{{ url('pieza') }}">Ingresar PIEZAS</a></li>
+						    <li><a href="{{ url('inventario') }}">Inventario</a></li>
 						  </ul>
 					</li>
 					<li>
@@ -48,7 +48,7 @@
 						  <span class="caret"></span></button>
 						  <ul class="dropdown-menu">
 						    <li><a href="#">Reporte GENERAL</a></li> 
-						    <li><a href="#">Reporte Empresarial</a></li>
+						    <li><a href="{{ url('reporteemp') }}">Reporte EMPRESARIAL</a></li>
 						 </ul>
 					</li>
 				</ul>
