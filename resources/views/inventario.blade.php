@@ -14,16 +14,6 @@
 					
 					{!! Form::model($inventario, $parametros['ruta']) !!}
 					
-
-					<div clas="form-group">
-							<label class="col-sm-3 control-label">Año</label>
-							<div class="col-sm-7">
-								{!! Form::select('$agnos', App\Agnos::lists('agno', 'id'), null, array('class' => 'form-control')) !!}
-							</div>
-						</div>	
-						<br><br><br>
-						
-
 					<div clas="form-group">
 							<label class="col-sm-3 control-label">Marca</label>
 							<div class="col-sm-7">
@@ -32,11 +22,22 @@
 							</div>
 						</div>	
 						<br><br><br>
-						
+
+						<div clas="form-group">
+							<label class="col-sm-3 control-label">Año</label>
+							<div class="col-sm-7">
+								{!! Form::select('agno', App\Agnos::lists('agno', 'id'), null, array('class' => 'form-control')) !!}
+							</div>
+						</div>	
+						<br><br><br>
+
+
+
+
 						<div clas="form-group">
 							<label class="col-sm-3 control-label">Modelo</label>
 							<div class="col-sm-7">
-								{!! Form::select(null, App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
+								{!! Form::select('modelo', App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
 							</div>
 						</div>	
 						<br><br><br>

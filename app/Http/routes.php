@@ -28,4 +28,5 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',]);
 Route::post('Resultado', ['uses' => 'ConsultaController@postResultado']);
 
+Route::get('agnos/{id}', 'InventarioController@getAgnos');
 
