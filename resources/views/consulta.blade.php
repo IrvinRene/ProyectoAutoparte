@@ -10,53 +10,53 @@
 
 				<div class="panel-body">
 					{{--<div class="row">--}}
-						¿Qué estás buscando? Ingresa tus datos ... <br>
+						¿Qué estás buscando? Ingresa tus datos ... <br><br>
 						{!! Form::open(['url' => 'Resultado', 'class' => 'form-horizontal']) !!}
 						<form clas="form-horizontal">
 									
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
-								<label class="col-sm-3 control-label">Marca</label>
-								<div class="col-sm-7">
+								<label class="col-sm-2 control-label">Marca</label>
+								<div class="col-sm-10">
 									{!! Form::select('marca', App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
-								<label class="col-sm-3 control-label">Modelo</label>
-								<div class="col-sm-7">
+								<label class="col-sm-2 control-label">Modelo</label>
+								<div class="col-sm-10">
 									{!! Form::select('modelo', App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
-								<label class="col-sm-3 control-label">Motor</label>
-								<div class="col-sm-7">
+								<label class="col-sm-2 control-label">Motor</label>
+								<div class="col-sm-10">
 									{!! Form::select('motor', App\Motores::lists('motor', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
-								<label class="col-sm-3 control-label">Año</label>
-								<div class="col-sm-7">
+								<label class="col-sm-2 control-label">Año</label>
+								<div class="col-sm-10">
 									{!! Form::select('agno', App\Agnos::lists('agno', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 							</div>
 
 							<div class="form-group{{ $errors->has('idrol') ? ' has-error' : '' }}">
-								<label class="col-sm-3 control-label">Pieza</label>
-								<div class="col-sm-7">
+								<label class="col-sm-2 control-label">Pieza</label>
+								<div class="col-sm-10">
 									{!! Form::select('pieza', App\Pieza::lists('pieza', 'id'), null, array('class' => 'form-control')) !!}
 								</div>
 								<br></br>
 							</div>
 
-						<br><br>
+						<br>
 						<div clas="form-group">
-							<br><br>
 							<div class="col-sm-offset-4 col-sm-6">
 								<button class="bnt bnt-success" type="submit"> Buscar </button>
 							</div>
 						</div>
+
 					</form>
 						{!!Form::close()!!}		
 
@@ -72,6 +72,9 @@
 							<tr>
 								<th>Marca</th>
 								<th>Modelo</th>
+								<th>Pieza</th>
+								<th>Muestra</th>
+								<th>Información</th>
 								<th>Stock</th>
 								<th>Sucursal</th>
 							</tr>
@@ -80,6 +83,9 @@
 							<tr>
 								<td>{{ $Marcas->marca }}</td>
 								<td>{{ $Modelo->modelo }}</td>
+								<td>{{ $Pieza->pieza }}</td>
+								<td> <img src="{{ url($Pieza->imagen)}}" class="image-responsive image-circle" width="70px" height="70px"> </td>
+								<td>{{ $Pieza->infoadicional }}</td>
 								<td>{{ $Inventario->cantidad }}</td>
 								<td>{{ $Sucursal->sucursal }}</td>
 							</tr>
@@ -87,6 +93,7 @@
 					</table>
 				@endif
 		</div>
+
 	</div>
 </div>
 @endsection
