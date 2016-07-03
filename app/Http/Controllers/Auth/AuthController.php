@@ -22,8 +22,8 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers;
 
-    protected $redirectTo = '/inicio';
-    protected $redirectAfterLogout = 'inicio';
+    protected $redirectTo = '/';
+    protected $redirectAfterLogout = '/';
 
     /**
      * Create a new authentication controller instance.
