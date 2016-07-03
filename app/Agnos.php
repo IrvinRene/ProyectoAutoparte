@@ -10,7 +10,10 @@ class Agnos extends Model {
 	*/
 	protected $table = 'agnos';
 	
-    
+    public static function agnos($id){
+    	return Agnos::where('id', '=', $id)
+    	->get();
+    }
 }
 
 ?>

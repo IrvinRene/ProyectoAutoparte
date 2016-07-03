@@ -107,6 +107,9 @@ class SucursalController extends Controller
      */
     public function destroy($id)
     {
-        
+        $sucursal = Sucursal::find($id);
+        $sucursal -> delete();
+
+        return \Redirect::route('sucursal.index');
     }
 }
