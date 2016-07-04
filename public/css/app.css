@@ -874,7 +874,10 @@ th {
 *:after {
   box-sizing: border-box;
 }
-
+.hola
+{
+background-color: red;
+}
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -4588,6 +4591,7 @@ a.badge:focus {
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 6px;
+
 }
 .jumbotron .container {
   max-width: 100%;
@@ -6235,4 +6239,27 @@ body,
 label,
 .checkbox label {
   font-weight: 300;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 95px;
+  background-color:#3CB371;
+color: black;
+
+}
+
+p.foot-text{
+  padding-top: 20px;
+  color: white;
+}
+.navbar{
+  background-color:#3CB371;
+  font-weight: bold;
+}
+.contenedor1{
+   background-repeat: no-repeat;
+  background-image: url('public/f3.png');
 }

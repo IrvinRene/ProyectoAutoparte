@@ -13,11 +13,9 @@
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
-
-
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-reverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -79,7 +77,7 @@
 					
 		</div>
 	</nav>
-	<div class="container-fluid">
+	<div class="contenedor1" >
 		@yield('content')
 	</div>
 	
@@ -93,10 +91,8 @@
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
 	<script type="text/javascript"></script>
 	<script src="dropdown.js"></script>
-=======
->>>>>>> origin/master
+
 </body>
 </html>

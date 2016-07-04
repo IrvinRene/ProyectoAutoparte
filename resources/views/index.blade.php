@@ -12,7 +12,7 @@
   </ol>
 
   <!-- Wrapper for slides CAROUSEL <3.<3 by:Jeyci *_______*-->
-  <div class="carousel-inner" role="listbox">
+  <div class="carousel-inner" role="listbox" style="font-family:AR DESTINE">
 	   
 	    <div class="item active">
 	      <center>
