@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Evaluacion as Evaluacion;
 class EvaluacionController extends Controller
 {
     /**
@@ -16,7 +16,19 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        //
+         $evaluacion = new Evaluacion;
+        $parametros['ruta']             = ['route' => 'evaluacion.store', 'class' => 'form-horizontal'];
+        $parametros['metodo']       = 'POST';
+        $parametros['idopcion']        =  '';
+        $parametros['comentario']        =  '';
+        $parametros['idsucursal']        =  '';
+        $parametros['button']       = 'Registrar';
+        
+        
+    
+    
+       
+        return view('evaluacion', compact(['parametros', 'evaluacion']));
     }
 
     /**
@@ -37,7 +49,14 @@ class EvaluacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $evaluacion = new Evaluacion;
+        
+        $evaluacion->idopcion           = $request->input('idopcion');
+        $evaluacion->idsucursal         = $request->input('idsucursal');
+        $evaluacion->comentario          = $request->input('comentario');
+        $evaluacion->save();
+        
+        return redirect()->back();
     }
 
     /**
@@ -59,7 +78,15 @@ class EvaluacionController extends Controller
      */
     public function edit($id)
     {
-        //
+            $evaluacion = Evaluacion::find($id);
+        
+        $parametros['ruta']             = ['route' => ['evaluacion.update', $id], 'method' => 'patch', 'class' => 'form-horizontal'];
+        $parametros['idopcion']            = $evaluacion->idopcion;
+        $parametros['idsucursal']            = $evaluacion->idsucursal;
+        $parametros['comentario']            = $evaluacion->comentario;
+        $parametros['button']           = 'Editar';
+
+        return view('evaluacion', compact(['evaluacion', 'parametros']));
     }
 
     /**
@@ -71,7 +98,13 @@ class EvaluacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $evaluacion = Evaluacion::find($id);
+       
+        $evaluacion->idopcion           = $request->input('idopcion');
+        $evaluacion->idsucursal         = $request->input('idsucursal');
+        $evaluacion->comentario          = $request->input('comentario');
+        $evaluacion->save();
+        return \Redirect::route('evaluacion.index');
     }
 
     /**

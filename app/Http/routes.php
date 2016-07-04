@@ -22,6 +22,8 @@ Route::resource('inventario', 'InventarioController');//Lukita
 Route::resource('reporteemp', 'ReporteempController');//Lukita
 Route::resource('sucursal', 'SucursalController');//Willian
 Route::get('imagen',['as'=>'imagen','uses'=>'PiezaController@getImagen']);//Sandra
+Route::resource('evaluacion', 'EvaluacionController');//Mc
+Route::resource('reportegrl', 'ReportegrlController');//Kevin
 Route::post('almacenar-imagen',['as'=>'store_imagen','uses'=>'PiezaController@storeImagen']);//Sandra
 //Anais esta parte creo que te sirve a ti
 Route::get('home', 'HomeController@index');

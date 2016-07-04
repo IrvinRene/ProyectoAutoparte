@@ -50,7 +50,7 @@
 						 <a class="dropdown-toggle" type="button" data-toggle="dropdown">Reportes
 						  <span class="caret"></span></a>
 						  <ul class="dropdown-menu">
-						    <li><a href="#">Reporte GENERAL</a></li> 
+						    <li><a href="{{ url('reportegrl') }}">Reporte GENERAL</a></li> 
 						    <li><a href="{{ url('reporteemp') }}">Reporte EMPRESARIAL</a></li>
 						 </ul>
 					</li>
