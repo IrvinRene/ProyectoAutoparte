@@ -17,8 +17,9 @@
 					<div clas="form-group">
 							<label class="col-sm-3 control-label">Marca</label>
 							<div class="col-sm-7">
-								{!! Form::select('marcas', App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control'),['id'=>'marcas']) !!}
-							
+								{!! Form::select('marcas', $marcas=App\Marcas::lists('marca', $id='id'), null, array('class' => 'form-control'),['id'=>'marcas']) !!}
+								{!! Form::hidden('idmarca', $idmarca=$('.id').val()) !!}
+								<?php echo $idmarca ?>
 							</div>
 						</div>	
 						<br><br><br>
@@ -35,7 +36,7 @@
 						<div clas="form-group">
 							<label class="col-sm-3 control-label">Modelo</label>
 							<div class="col-sm-7">
-								{!! Form::select('modelos', App\Modelo::lists('modelo', 'id')->where('marcas', 'idmarca'), null, array('class' => 'form-control'), ['id'=>'modelos']) !!}
+								{!! Form::select('modelos', App\Modelo::where('idmarca', '1')->where('idagno', '1')->lists('modelo','id'), null, array('class' => 'form-control'), ['id'=>'modelos']) !!}
 							</div> 
 						</div>	
 						<br><br><br>
