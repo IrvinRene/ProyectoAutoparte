@@ -24,7 +24,6 @@ class ConsultaController extends Controller {
 		$Inventario->cantidad=\App\Inventario::where('idpieza', $request->get('pieza'))->first()->cantidad;
 		$Sucursal = \App\Sucursal::find($Inventario->idsucursal);
 		$Pieza = \App\Pieza::find($Inventario->idpieza);
-		//$sucursal = \App\Sucursal::find($inventario->idsucursal);
 		//dd($Inventario);
 		//dd($Inventario->cantidad);
 		return view('consulta', compact(['Marcas','Modelo','Inventario','Sucursal','Pieza']));
