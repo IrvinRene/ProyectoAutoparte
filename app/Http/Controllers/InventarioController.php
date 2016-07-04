@@ -5,7 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Inventario as Inventario;
-use App\Agnos;
+use App\Modelos  as Modelos;
+use App\Marcas as Marcas;
 
 class InventarioController extends Controller
 {
@@ -30,23 +31,20 @@ class InventarioController extends Controller
         else{
             $inv = Inventario::paginate(10);
         }
-
+    
+    
        
         return view('inventario', compact(['parametros', 'inventario', 'inv']));
 
     }
+ 
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getAgnos(Request $request, $id){
-        if($request->ajax()){
-            $agnos = Agnos::agnos($id);
-            return response()->json($agnos);
-        }
-    }
+  
 
 
     public function create()

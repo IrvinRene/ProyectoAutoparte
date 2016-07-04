@@ -17,8 +17,8 @@
 					<div clas="form-group">
 							<label class="col-sm-3 control-label">Marca</label>
 							<div class="col-sm-7">
-								{!! Form::select(null, App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control')) !!}
-
+								{!! Form::select('marcas', App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control'),['id'=>'marcas']) !!}
+							
 							</div>
 						</div>	
 						<br><br><br>
@@ -32,16 +32,14 @@
 						<br><br><br>
 
 
-
-
 						<div clas="form-group">
 							<label class="col-sm-3 control-label">Modelo</label>
 							<div class="col-sm-7">
-								{!! Form::select('modelo', App\Modelo::lists('modelo', 'id'), null, array('class' => 'form-control')) !!}
-							</div>
+								{!! Form::select('modelos', App\Modelo::lists('modelo', 'id')->where('marcas', 'idmarca'), null, array('class' => 'form-control'), ['id'=>'modelos']) !!}
+							</div> 
 						</div>	
 						<br><br><br>
-						
+
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Proceso</label>
 							<div class="col-sm-7">
