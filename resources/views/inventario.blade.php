@@ -18,7 +18,7 @@
 							<label class="col-sm-3 control-label">Marca</label>
 							<div class="col-sm-7">
 								{!! Form::select('marca', $marcas=App\Marcas::lists('marca', 'id'), null, array('class' => 'form-control'), ['id'=>'marcas']) !!}
-								{!! Form::text('idmarca', $marcas)!!}
+								
 							</div>
 						</div>	
 						<br><br><br>
