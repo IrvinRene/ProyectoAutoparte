@@ -94,11 +94,7 @@ class MarcaController extends Controller {
 	{
     	$marca = Marcas::find($id);
         $marca->marca                = $request->input('marca');
-  //       $pieza->serie                   = $request->input('serie');
-  //       $pieza->marca                   = $request->input('marca');
-  //       $pieza->infoadicional                   = $request->input('infoadicional');
-  //       $pieza->idsucursal                  = $request->input('idsucursal');
-  //       $pieza->idmodelo                    = $request->input('idmodelo');
+
         $marca->save();
         return \Redirect::route('marca.index');
 	}

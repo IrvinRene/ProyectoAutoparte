@@ -45,7 +45,12 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root'   => public_path().'/imagenes',
+            'root'   => public_path().'/imagenespiezas',
+        ],
+
+         'img' => [
+            'driver' => 'local',
+            'root'   => public_path().'/imagenespiezas',
         ],
 
         'ftp' => [

@@ -2,7 +2,6 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 use App\Pieza as Pieza;
 class PiezaController extends Controller {
@@ -26,6 +25,7 @@ class PiezaController extends Controller {
         $parametros['infoadicional']    =  '';
         $parametros['idsucursal']   =  '';
         $parametros['idmodelo']     =  '';
+        $parametros['imagen']     =  '';
         $parametros['button']       = 'Registrar';
         
         if($request->input('pieza1') != ""){
@@ -69,6 +69,10 @@ class PiezaController extends Controller {
         $pieza->infoadicional                   = $request->input('infoadicional');
         $pieza->idsucursal                  = $request->input('idsucursal');
         $pieza->idmodelo                    = $request->input('idmodelo');
+        $imagen= $request->file('imagen');
+        $imagenName=$_FILES['imagen']['name'];
+        \Storage::disk('local')->put($imagenName, \File::get($imagen));
+        $pieza->imagen=$imagenName;
         $pieza->save();
         return redirect()->back();
     }
