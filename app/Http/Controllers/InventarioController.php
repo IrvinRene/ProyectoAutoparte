@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Inventario as Inventario;
-use App\Modelos  as Modelos;
+use App\Modelo  as Modelo;
 use App\Marcas as Marcas;
 
 class InventarioController extends Controller
@@ -17,6 +17,9 @@ class InventarioController extends Controller
      */
     public function index(Request $request)
     {
+
+      
+
         $inventario = new Inventario;
         $parametros['ruta']             = ['route' => 'inventario.store', 'class' => 'form-horizontal'];
         $parametros['metodo']       = 'POST';
@@ -31,10 +34,31 @@ class InventarioController extends Controller
         else{
             $inv = Inventario::paginate(10);
         }
-    
-    
+    if($request->input('id1') != ""){
+            $mrk = Marcas::mda($request->get('id1'));
+        }
        
-        return view('inventario', compact(['parametros', 'inventario', 'inv']));
+
+  
+        $marcas = new Marcas;
+        $parametros['ruta']             = ['route' => 'inventario.store', 'class' => 'form-horizontal'];
+        $parametros['metodo']       = 'POST';
+        $parametros['id']           ='';
+        $parametros['marca']        ='';
+        
+         
+
+
+        $modelo = new Modelo;
+        $parametros['ruta']             = ['route' => 'inventario.store', 'class' => 'form-horizontal'];
+        $parametros['metodo']       = 'POST';
+        $parametros['id']           ='';
+        $parametros['modelos']        ='';
+        $parametros['idmarca']          ='';
+
+
+            
+        return view('inventario', compact(['parametros', 'inventario', 'inv', 'marca',' mrk', 'modelos', 'idmarca']));
 
     }
  
@@ -60,12 +84,30 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
+
+        
         $inventario = new Inventario;
         $inventario->cantidad                   = $request->input('cantidad');
         $inventario->idpieza                   = $request->input('idpieza');
         $inventario->idsucursal                   = $request->input('idsucursal');
     
         $inventario->save();
+
+        $marcas = new Marcas;
+        $marcas->id                 =$request->input('id');
+        $marcas->marca              =$request->input('marca');
+
+        $marca->save();
+
+        $modelo = new Modelo;
+        $modelos->id                =$request->input('id');
+        $modelos->modelo            =$request->input('modelo');
+        $modelos->idmarca           =$request->input('idmarca');
+
+        $modelos->save();
+
+
+
         return redirect()->back();
     }
 
