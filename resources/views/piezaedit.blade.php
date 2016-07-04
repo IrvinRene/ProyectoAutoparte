@@ -13,7 +13,7 @@
 					
 					@include('partials.errors')
 					
-					{!! Form::open(['method'=> 'POST','route' => 'pieza.index', 'files' => 'true', 'enctype' =>'multipart/form-data']) !!}
+					{!! Form::model($piezaedit, $parametros['ruta']) !!}
 					
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Pieza</label>
@@ -82,49 +82,7 @@
 			</div>
 		</div>
 
-		<div class="col-sm-12">
-			<h3 class="text-center">Piezas Almacenadas</h3>
-			<br>
-			<div class="table-responsive">
-			{!! Form::open(['method' => 'GET','route' => 'pieza.index']) !!}
-				<div class="form-group bg-info">
-				<br>
-					<div class="col-md-6">
-						<label class="col-md-8">{!! Form::text('pieza1', null, array('class' => 'form-control', 'placeholder' => 'Escriba el nombre de la pieza')) !!}</label>
-							<button type="submit" class="btn btn-success">Buscar</button>		
-					</div>
-					<br><br><br>
-				</div>	
-			{!! Form::close() !!}
-				<table class="table table-bordered table-striped">
-					<thead>
-						<tr class="info">
-							<th>PIEZA</th><th>SERIE</th><th>MARCA</th><th>EDITAR</th><th>ELIMINAR</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($pz as $pieza)
-							
-							<tr class="text-center">
-							    <td>{{$pieza->pieza}}</td>
-								<td>{{$pieza->serie}}</td>
-								<td>{{$pieza->marca}}</td>
-								{{--<td>{{$u = DB::table('modelos')->where('id', $pieza->idmodelo)->pluck('modelo')}}</td>--}}
-								<td>
-									<a href="{{ route('piezaedit.edit', $pieza->id) }}" class="btn btn-success btn-sm"><i class="fa fa-btn fa-edit"></i>Editar</a>
-								</td>
-								<td>
-									{!! Form::open(['method' => 'DELETE','route' => ['pieza.destroy', $pieza->id]]) !!}
-										<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-close fa-btn"></i>Eliminar</button>		
-									{!! Form::close() !!}
-								</td>								
-							</tr>
-						@endforeach
-					</tbody>
-				</table>
-				<div class="text-center">
-					{!!str_replace('/?','?',$pz->appends(Input::except('page'))->render())!!}
-				</div>
+		
 			</div>
 		</div> 
 	</div>

@@ -16,12 +16,14 @@ Route::get('nosotros', 'FrontController@nosotros'); //JARLEY
 Route::get('consulta', 'ConsultaController@index'); //LIBNY
 Route::resource('marca', 'MarcaController');//IRVIN
 Route::resource('pieza', 'PiezaController');//Sandra
+Route::resource('piezaedit', 'PiezaeditController');//Sandra
 Route::resource('modelo', 'ModeloController');// Alex
 Route::resource('inventario', 'InventarioController');//Lukita
 Route::resource('reporteemp', 'ReporteempController');//Lukita
-//Anais esta parte creo que te sirve a ti
 Route::resource('sucursal', 'SucursalController');//Willian
-
+Route::get('imagen',['as'=>'imagen','uses'=>'PiezaController@getImagen']);//Sandra
+Route::post('almacenar-imagen',['as'=>'store_imagen','uses'=>'PiezaController@storeImagen']);//Sandra
+//Anais esta parte creo que te sirve a ti
 Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
