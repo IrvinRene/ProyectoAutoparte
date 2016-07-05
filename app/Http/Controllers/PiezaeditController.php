@@ -119,10 +119,11 @@ class PiezaeditController extends Controller {
      */
     public function destroy($id)
     {
-        //
+       $piezaedit = Marcas::find($id);
+        $piezaedit -> delete();
         
-      /*  Record::destroy($id);
-        return \Redirect::route('noticia.index');*/
+
+         return \Redirect::route('pieza.index');
     }
 }
 

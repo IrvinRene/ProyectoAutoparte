@@ -146,10 +146,11 @@ class PiezaController extends Controller {
      */
     public function destroy($id)
     {
-        //
+        $pieza = Marcas::find($id);
+        $pieza -> delete();
         
-      /*  Record::destroy($id);
-        return \Redirect::route('noticia.index');*/
+
+         return \Redirect::route('pieza.index');
     }
 }
 
